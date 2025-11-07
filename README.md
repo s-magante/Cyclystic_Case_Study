@@ -10,15 +10,15 @@ output:
 
 # Preparation
 
-## Initially, I did my data cleaning in Excel.
+#### Initially, I did my data cleaning in Excel.
 
 I combined the data from the past 12 months that was found in [divvy-tripdata](https://divvy-tripdata.s3.amazonaws.com/index.html) into a single sheet using the Power Query Editor. I then removed unnecessary data. Since the question I was assigned was "How do annual members and casual riders use Cyclistic bikes differently?", I deduced that the starting and ending locations, the starting and ending stations as well as the starting and ending longitudes and latitudes were not needed. Additionally, the ride id's were not needed either. By removing these unnecessary sources of data, I can then focus on key elements to make my analysis.
 
 After cleaning the data, I then focus on how to answer how annual members usage differs from that of casual members. To see a clear picture of this, I decide to expand on the data by adding columns based off Month, Day, Hour and Ride Durations. To do this, I used the Power Query Editor on Excel. In order to calculate trip durations, I subtracted the time a ride ended by the time the ride started. From there, I saw that most ride durations were less than an hour and decided to display the data by minutes. Then, I separated the Ride Time into categories: Under 10 minutes, 10-30, 30-60, and Over 60 minutes. This allowed me to see how the bikes were being used and I could then separate the data by use either by members or casuals. 
 
-## Loading packages and libraries.
+### Loading packages and libraries.
 
-## I loaded the following packages.
+#### I loaded the following packages.
 ```{r}
 #install.packages("tidyverse")
 #install.packages("ggplot2")
@@ -26,7 +26,7 @@ After cleaning the data, I then focus on how to answer how annual members usage 
 #install.packages("readr")
 ```
 
-## I then loaded the libraries.
+#### I then loaded the libraries.
 ```{r}
 library(ggplot2)
 library(dplyr)
@@ -35,12 +35,12 @@ library(readxl)  # For read_excel()
 library(tidyverse)  # Optional but helpful
 ```
 
-## Next, I loaded my cleaned data.
+#### Next, I loaded my cleaned data.
 ```{r}
 Cyclistic <- read_excel("C:/Users/smaga/OneDrive/Desktop/Stuff/Data Analytics/Data Analytics Bootcamp/Case Study 1/Cyclistic.xlsx")
 ```
 
-### I realized that some of my column names included spaces so I fixed them by renaming the columns.
+#### I realized that some of my column names included spaces so I fixed them by renaming the columns.
 ```{r}
 colnames(Cyclistic)[4] <- "Day_Name"
 colnames(Cyclistic)[6] <- "Ride_Time"
@@ -48,7 +48,7 @@ colnames(Cyclistic)[6] <- "Ride_Time"
 
 # Visualization
 
-## Deciding useful visualization to make analysis
+### Deciding useful visualization to make analysis
 
 Going back to my initial assignment to answer "How do annual members and casual riders use Cyclistic bikes differently?", I decided that seeing the breakdowns of Monthly, Daily, hourly and duration usage would be best to see any trends.
 
@@ -183,11 +183,11 @@ Whereas when it comes to casual riders, the data shows a different story. The us
 
 ## Conclusion
 
-My analysis shows that annual members and casual riders use Cyclystic bikes differently. I found that members primarily use Cyclystic bikes during the weekday during commute hours most likely for daily transportation. In contrast, casual riders use Cyclystic bikes during weekends and midday hours most likely for leisure and recreation.
+My analysis shows that annual members and casual riders use Cyclistic bikes differently. I found that members primarily use Cyclistic bikes during the weekday during commute hours most likely for daily transportation. In contrast, casual riders use Cyclistic bikes during weekends and midday hours most likely for leisure and recreation.
 
 ## Recommendation for Conversion
 
-### After analyzing the data, I would recommend the following to convert casual riders to annual members:
+#### After analyzing the data, I would recommend the following to convert casual riders to annual members:
 
 * Flexible membership options that cater to recreational/occasional riders
 * Emphasize cost savings and convenience for frequent riders
